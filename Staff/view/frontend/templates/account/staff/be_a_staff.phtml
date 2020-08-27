@@ -1,0 +1,45 @@
+<?php $customerInfo = $block->getCustomerLogin(); ?>
+<div id="update-area">
+    <h3>Update profile staff</h3>
+    <form id="update-form">
+        <label for="type" style="color:#2ca02c">Staff Type</label>
+        <select id="type_customer">
+            <?php $allOption = $block->getOptions() ?>
+            <?php foreach ($allOption as $option) { ?>
+                <option
+                    value="<?php echo $option['value'] ?>" <?php if ($customerInfo['staff_type'] === $option['label']) {
+                    echo "selected";
+                } ?> >
+                    <?php echo $option['label'] ?>
+                </option>
+            <?php } ?>
+        </select>
+        <label for="nick_name" style="color: #2ca02c">Nick name</label>
+        <input type="text" id="nick_name" value="<?php echo $customerInfo['nick_name'] ?>">
+        <button id="btn_submit">Submit</button>
+    </form>
+</div>
+<script>
+    require(['jquery'], function ($) {
+        $(document).ready(function () {
+            $("#btn_submit").click(function (e) {
+                e.preventDefault();
+                let customerLink = 'http://m234.local/staff/staff/save';
+                let nickname = $('#nick_name').val();
+                let typeValueStaff = $('#type_customer option:selected').val();
+                let typeLabelStaff = $('#type_customer option:selected').text();
+                console.log(typeLabelStaff);
+                $.post(customerLink, {
+                    nickname: nickname,
+                    typeValueStaff: typeValueStaff,
+                    typeLabelStaff: typeLabelStaff
+                }).done(function () {
+                    alert("True");
+                }).fail(function () {
+                    alert("False");
+                });
+
+            });
+        });
+    });
+</script>

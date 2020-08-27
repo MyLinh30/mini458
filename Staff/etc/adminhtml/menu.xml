@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation=
+    "urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add
+            id="Magenest_Staff::staffmagement"
+            title="Staff Management"
+            module="Magenest_Staff"
+            sortOrder="50"
+            resource="Magenest_Staff::staffmagement"
+        />
+        <add
+            id="Magenest_Staff::staff"
+            title="Staffs"
+            module="Magenest_Staff"
+            sortOrder="55"
+            parent="Magenest_Staff::staffmagement"
+            action="staff/index/"
+            resource="Magenest_Staff::staff"
+        />
+    </menu>
+</config>

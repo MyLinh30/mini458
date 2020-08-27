@@ -1,0 +1,27 @@
+<h2>Tìm kiếm thông tin Staff qua nickname</h2>
+<style>
+    #inp_nickname {
+        width: 500px;
+    }
+</style>
+
+
+<input type="text" id="inp_nickname" name="nickname" placeholder="Nhập vào tên nickname cầm tìm...">
+<div id="('span')"></div>
+
+<script>
+    require(['jquery'],function ($) {
+        $('#inp_nickname').change(function (event) {
+            event.preventDefault();
+            let customLink = "http://m234.local/staff/staff/searchnickname";
+            let getNickName = $('#inp_nickname').val();
+            $.post(customLink, {name: getNickName })
+                .done(function (data) {
+                    console.log(data);
+                })
+                .fail(function () {
+                    console.log("Sai roi");
+                })
+        });
+    });
+</script>
