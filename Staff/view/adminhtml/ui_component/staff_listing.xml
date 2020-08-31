@@ -142,7 +142,7 @@
                 </item>
             </argument>
         </column>
-<!--        <actionsColumn name="actions" class="Linh\Hotel\Ui\Component\Listing\Columns\HotelActions" sortOrder="200">-->
+<!--        <actionsColumn name="actions" class="Magenest\Test\Ui\Component\Listing\Columns\TestActions" sortOrder="200">-->
 <!--            <settings>-->
 <!--                <indexField>id</indexField>-->
 <!--            </settings>-->

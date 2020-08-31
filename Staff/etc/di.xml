@@ -12,11 +12,12 @@
             <argument name="resourceModel" xsi:type="string">Magenest\Staff\Model\ResourceModel\Staff</argument>
         </arguments>
     </virtualType>
-<!--    <type name="Magento\Catalog\Block\Product\ListProduct">-->
-<!--        <plugin name="Magenest_Staff_Plugin" type="Magenest\Staff\Plugin\PriceCatalogSearch" />-->
-<!--    </type>-->
 
-    <type name="Magento\Catalog\Model\Product">
-        <plugin name="getPriceAfter" type="Magenest\Staff\Plugin\ChangePrice" sortOrder="10" disabled="false"  />
+    <type name="Magento\Catalog\Block\Product\ListProduct">
+        <plugin name="changePriceProduct" type="Magenest\Staff\Plugin\UpdatePriceProduct" sortOrder="10"/>
     </type>
+    <virtualType name="Magento\CatalogSearch\Block\SearchResult\ListProduct">
+        <plugin name="changPrice" type="Magenest\Staff\Plugin\UpdatePriceProduct"/>
+    </virtualType>
+
 </config>

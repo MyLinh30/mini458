@@ -47,7 +47,7 @@ class AddStaffTypeAttribute implements DataPatchInterface, PatchRevertableInterf
     {
         $eavSetup = $this->eavSetupFactory->create();
         $eavSetup->addAttribute(\Magento\Customer\Model\Customer::ENTITY, 'staff_type',
-            ['type' => 'text',
+            ['type' => 'int',
             'label' => 'Magenest Staff',
             'input' => 'select',
             "source" => 'Magenest\Staff\Model\Config\Source\ShowStaffType',

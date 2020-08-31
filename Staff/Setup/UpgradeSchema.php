@@ -12,7 +12,7 @@ class UpgradeSchema implements \Magento\Framework\Setup\UpgradeSchemaInterface
 
     public function upgrade(SchemaSetupInterface $setup, ModuleContextInterface $context)
     {
-        if (version_compare($context->getVersion(), '1.0.1') < 0) {
+        if (version_compare($context->getVersion(), '1.0.2') < 0) {
             $installer = $setup;
             $installer->startSetup();
             $linhTable = $installer->getConnection()->newTable($installer->getTable('magenest_staff'))
