@@ -32,7 +32,6 @@ class UpdatePriceProduct
             ->getAttribute('customer', 'staff_type')
             ->getSource()
             ->getOptionText($valueStaffType);
-
         $exp_result = explode('</span>', $result);
         $exp_result[0]= $exp_result[0].' ('.$labelstaffType->getText().')';
         $imp_result = implode("</span>", $exp_result);

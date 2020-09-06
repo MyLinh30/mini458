@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation=
+    "urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add
+            id="Magenest_Test::testmanagement"
+            title="Test Management"
+            module="Magenest_Test"
+            sortOrder="50"
+            resource="Magenest_Test::testmanagement"
+        />
+        <add
+            id="Magenest_Test::test"
+            title="Test"
+            module="Magenest_Test"
+            sortOrder="55"
+            parent="Magenest_Test::testmanagement"
+            action="test/index/"
+            resource="Magenest_Test::test"
+        />
+    </menu>
+</config>

@@ -1,0 +1,36 @@
+<h2>Test Address Information Details</h2>
+<table id="showtestaddress" border="1">
+    <tr bgcolor="#7cfc00">
+        <th>ID</th>
+        <th>Street</th>
+        <th>City</th>
+        <th>Country</th>
+        <th>Region</th>
+        <th>Postcode</th>
+        <th>Telephone</th>
+        <th>Fax</th>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Email</th>
+        <th>Prefix</th>
+        <th>Action</th>
+    </tr>
+    <?php foreach ($block->getDataTest() as $test): ?>
+    <tr>
+        <td><?php echo $test->getId() ?></td>
+        <td><?php echo $test->getStreet() ?></td>
+        <td><?php echo $test->getCity() ?></td>
+        <td><?php echo $test->getCountry() ?></td>
+        <td><?php echo $test->getRegion() ?></td>
+        <td><?php echo $test->getContactName() ?></td>
+        <td><?php echo $test->getTelephone() ?></td>
+        <td><?php echo $test->getFax() ?></td>
+        <td><?php echo $test->getFirstname() ?></td>
+        <td><?php echo $test->getLastname() ?></td>
+        <td><?php echo $test->getEmail() ?></td>
+        <td><?php echo $test->getPrefix() ?></td>
+        <td><a href="<?php echo $block->getUrl('test/test/edit').'id/'.$test->getId(); ?>" class="action primary">Edit</a></td>
+    </tr>
+    <?php endforeach;?>
+</table>
+

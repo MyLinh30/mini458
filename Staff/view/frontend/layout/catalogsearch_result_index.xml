@@ -10,7 +10,7 @@
     <update handle="catalogsearch_result_index"/>
     <body>
         <referenceContainer name="content">
-            <block name="romove-cache" class="Magento\Framework\View\Element\Template" cacheable="false"/>
+            <block  name="romove-cache" class="Magento\Framework\View\Element\Template" cacheable="false" />
         </referenceContainer>
     </body>
 </page>

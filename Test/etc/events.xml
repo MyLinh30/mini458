@@ -1,0 +1,5 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="test_country_save_after">
+        <observer name="test_country_load_after_observer" instance="Magenest\Test\Observer\ChangeCountryPrefix" disabled="false"/>
+    </event>
+</config>
