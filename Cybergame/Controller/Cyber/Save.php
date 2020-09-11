@@ -29,10 +29,10 @@ class Save extends \Magento\Framework\App\Action\Action
     {
         // $id = $this->_coreRegistry->registry('editRecordId');
         $data = (array)$this->getRequest()->getPostValue();
-        $testModel = $this->_roomExtraOptionFactoy->create();
-        $testModel->load($data['id']);
-        $testModel->addData($data);
-        $testModel->save();
+        $model = $this->_roomExtraOptionFactoy->create();
+        $model->load($data['id']);
+        $model->addData($data);
+        $model->save();
         $this->messageManager->addSuccess(__('Save test succesfully'));
         $this->_redirect('test/test/index');
     }

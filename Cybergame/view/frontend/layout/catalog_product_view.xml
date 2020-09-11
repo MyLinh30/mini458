@@ -1,6 +1,9 @@
 <?xml version="1.0"?>
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="3columns"
       xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <link src="Magenest_Cybergame::js/cyber.js" />
+    </head>
     <body>
         <referenceBlock name="page.main.title">
             <block  class="Magenest\Cybergame\Block\ExtraOption"  name="product.info.form.content.extra.option"  template="extra_option.phtml"/>
@@ -20,7 +23,6 @@
             <referenceContainer name="product.info.main">
                 <referenceBlock name="product.info" >
                     <referenceContainer name="product.info.form.content" >
-                        <block class="Magenest\Cybergame\Block\Product\View" name="product.info.addtocart" as="addtocart" template="Magenest_Cybergame::product/view/addtocart.phtml"/>
                         <block class="Magento\Framework\View\Element\Template" before="product.info.addtocart" name="add_account_name" template="Magenest_Cybergame::add_account_name.phtml"/>
                     </referenceContainer>
                 </referenceBlock>
