@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2018 Magenest. All rights reserved.
+ * See COPYING.txt for license details.
+ *
+ * Magenest_QuickBooksDesktop extension
+ * NOTICE OF LICENSE
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+<!--     <event name="customer_register_success">
+        <observer name="qbdesktop_register" instance="Magenest\QuickBooksDesktop\Observer\Customer\Register"/>
+    </event> -->
+    <event name="checkout_onepage_controller_success_action">
+        <observer name="customer_place_order" instance="Magenest\QuickBooksDesktop\Observer\SalesOrder\PlaceOrder"/>
+    </event>
+    <event name="customer_address_save_commit_after">
+        <observer name="qbdesktop_updateCustomer" instance="Magenest\QuickBooksDesktop\Observer\Customer\Edit"/>
+    </event>
+</config> 

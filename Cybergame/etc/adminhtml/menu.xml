@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation=
+    "urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Magenest_Cybergame::room"
+             title="Room Extra Management"
+             module="Magenest_Cybergame"
+             sortOrder="50"
+             resource="Magenest_Cybergame::room"/>
+
+        <add id="Magenest_Cybergame::show"
+             title="Room Extra Option"
+             sortOrder="55"
+             action="cybergame/index/index"
+             module="Magenest_Cybergame"
+             resource="Magenest_Cybergame::show"
+             parent="Magenest_Cybergame::room"/>
+    </menu>
+</config>

@@ -1,0 +1,58 @@
+<?php
+/**
+ * Copyright Â© 2018 Magenest. All rights reserved.
+ * See COPYING.txt for license details.
+ *
+ *
+ * Magenest_QuickBooksDesktop extension
+ * NOTICE OF LICENSE
+ *
+ * @category  Magenest
+ * @package   Magenest_QuickBooksDesktop
+ * @author TuongDN
+ */
+?>
+<div class="actions actions-gen-qwc-product">
+    <div id="qwc_product" class="message-validation hide" data-ui-id="request-product-result"></div>
+    <button class="action-export-qwc-product" type="button"
+            data-ui-id="button-send-request-to-export-product" id="<?php echo $block->getHtmlId() ?>">
+        <span><?php echo $block->escapeHtml($block->getButtonLabel()) ?></span>
+    </button>
+</div>
+<script>
+    require(['jquery'], function (jQuery) {
+        jQuery('[data-ui-id="button-send-request-to-export-product"]').click(function () {
+            var cron = jQuery('[data-ui-id="text-groups-backward-synchronization-groups-product-list-fields-cronjob-time-value"]').val();
+            var number = jQuery('[data-ui-id="text-groups-backward-synchronization-groups-product-list-fields-product-number-qbd-value"]').val();
+            var formKey = window.FORM_KEY;
+            var type = "<?php echo $block->setType() ?>";
+            var data = {
+                formKey: formKey,
+                cron: cron,
+                number: number,
+                type: type
+            };
+            var url = '<?php echo $block->getUrl('qbdesktop/QWC/export'); ?>';
+            jQuery.ajax({
+                type: "POST",
+                url: url,
+                data: data,
+                showLoader: true,
+                success: function (response) {
+                    var filename = "product.qwc";
+                    var blob = new Blob([response], {type: 'text/csv'});
+                    if (window.navigator.msSaveOrOpenBlob) {
+                        window.navigator.msSaveBlob(blob, filename);
+                    } else {
+                        var elem = window.document.createElement('a');
+                        elem.href = window.URL.createObjectURL(blob);
+                        elem.download = filename;
+                        document.body.appendChild(elem);
+                        elem.click();
+                        document.body.removeChild(elem);
+                    }
+                }
+            });
+        });
+    });
+</script>

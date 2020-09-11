@@ -1,0 +1,17 @@
+<h2><strong>Room Extra Option Information Details</strong></h2>
+<table id="show_room_extra_option" border="1">
+    <tr>
+        <th>Product_ID</th>
+        <th>Room name</th>
+        <th>Price</th>
+        <th>Action</th>
+    </tr>
+    <?php foreach ($block->getDataRoomExtraOption() as $test): ?>
+        <tr>
+            <td><?php echo $test->getId() ?></td>
+            <td><?php echo $test->getName() ?></td>
+            <td><?php echo $test->getPrice() ?></td>
+            <td><a href="<?php echo $block->getUrl('cybergame/cyber/edit').'id/'.$test->getId(); ?>" class="action primary">Edit</a></td>
+        </tr>
+    <?php endforeach;?>
+</table>

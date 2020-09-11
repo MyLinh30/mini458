@@ -1,0 +1,43 @@
+<h2>Edit Cyber Room in CyberGame in Magneto2</h2>
+<style>
+    label {
+        color: #0a0a0a;
+    }
+    input {
+        width: 200px;
+
+    }
+    h2 {
+        color: orangered;
+    }
+</style>
+<?php foreach ($block->getRecordRoomExtraOptionEdit() as $result): ?>
+<form id="edit_room_form" name="edit_room_form" method="post" action="/cybergame/cyber/save/">
+    <div><label>Edit room id: </label><?php echo $result->getId()?></div>
+    <label for="name">Name: </label>
+    <div>
+        <input id="name" type="text" name="name" value="<?= $result->getName()?> " disabled>
+    </div>
+    <label for="price">Price: </label>
+    <div>
+        <input id="price" type="text" name="price" value="<?=  $result->getPrice()?>" disabled>
+    </div>
+    <label for="number_pc">Number pc: </label>
+    <div>
+        <input id="number_pc" type="text" name="number_pc" value="<?= $result->getNumberPc()?>">
+    </div>
+    <label for="address">Address: </label>
+    <div>
+        <input id="address" type="text" name="address" value="<?= $result->getAddress()?>">
+    </div>
+    <label for="food_price">Food price: </label>
+    <div>
+        <input id="food_price" type="text" name="food_price" value="<?= $result->getFoodPrice()?>">
+    </div>
+    <label for="drink_price">Drink price: </label>
+    <div>
+        <input id="drink_price" type="text" name="drink_price" value="<?= $result->getDrinkPrice()?>">
+    </div>
+    <input type="submit" value="Submit" class="action primary"/>
+</form>
+<?php endforeach;?>

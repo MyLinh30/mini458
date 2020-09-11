@@ -1,0 +1,194 @@
+<div class="page-main-actions">
+    <div class="page-actions-placeholder"></div>
+    <div class="page-actions" data-ui-id="page-actions-toolbar-content-header">
+        <div class="page-actions-inner" data-title="Manage Queue">
+            <div class="page-actions-buttons">
+                <button id="sync_payment" title="Sync Payment &amp; Shipping Methods" type="button" class="action- scalable qbd primary"
+                        onclick="location.href =  '<?php echo $block->getUrl('qbdesktop/queue/syncPayment') ?>';"
+                        data-ui-id="sync-payment-button">
+                    <span>Sync Payment & Shipping Methods</span>
+                </button>
+                <button id="sync_customer" title="Sync Customers" type="button" class="action- scalable add primary"
+                        data-ui-id="sync-customer-button">
+                    <span>Sync Customers</span>
+                </button>
+                <button id="sync_product" title="Sync Products" type="button" class="action- scalable qbd primary"
+                        data-ui-id="sync-product-button">
+                    <span>Sync Products</span>
+                </button>
+                <button id="sync_order" title="Sync Orders" type="button" class="action- scalable qbd primary"
+                        data-ui-id="sync-order-button">
+                    <span>Sync Orders</span>
+                </button>
+                <button id="sync_invoice" title="Sync Invoices" type="button" class="action- scalable qbd primary"
+                        data-ui-id="sync-invoice-button">
+                    <span>Sync Invoices</span>
+                </button>
+                <button id="sync_creditmemo" title="Sync Credit Memos" type="button" class="action- scalable qbd primary"
+                        data-ui-id="sync-creditmemo-button">
+                    <span>Sync Credit Memos</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    require([
+        "jquery",
+        "jquery/ui"
+        ],function ($) {
+            "use strict";
+
+            $(document).ready(function () {
+                $("#sync_customer").on('click', function () {
+                    $.ajax({
+                        showLoader: true,
+                        type: "GET",
+                        url: "<?php echo $block->getUrl('qbdesktop/connection_ajax/check') ?>",
+                        data: 'type=customer',
+                        success: function (data) {
+                            if (data['count'] === 0) {
+                                window.location.reload();
+                            } else {
+                                var count = data['count'];
+                                for (var i = 0; i < count; i++) {
+                                    $.ajax({
+                                        showLoader: true,
+                                        type: "GET",
+                                        url: "<?php echo $block->getUrl('qbdesktop/connection_ajax/sync') ?>",
+                                        data: 'number=' + i + '&max=' + count + '&type=customer',
+                                        success: function (data) {
+                                            if (data['finish'] === 1) {
+                                                window.location.reload();
+                                            }
+                                        }
+                                    });
+                                }
+                            }
+                        }
+                    });
+                });
+
+                $("#sync_product").on('click', function () {
+                    $.ajax({
+                        showLoader: true,
+                        type: "GET",
+                        url: "<?php echo $block->getUrl('qbdesktop/connection_ajax/check') ?>",
+                        data: 'type=product',
+                        success: function (data) {
+                            if (data['count'] === 0) {
+                                window.location.reload();
+                            } else {
+                                var count = data['count'];
+                                for (var i = 0; i < count; i++) {
+                                    $.ajax({
+                                        showLoader: true,
+                                        type: "GET",
+                                        url: "<?php echo $block->getUrl('qbdesktop/connection_ajax/sync') ?>",
+                                        data: 'number=' + i + '&max=' + count + '&type=product',
+                                        success: function (data) {
+                                            if (data['finish'] === 1) {
+                                                window.location.reload();
+                                            }
+                                        }
+                                    });
+                                }
+                            }
+                        }
+                    });
+                });
+
+                $("#sync_order").on('click', function () {
+                    $.ajax({
+                        showLoader: true,
+                        type: "GET",
+                        url: "<?php echo $block->getUrl('qbdesktop/connection_ajax/check') ?>",
+                        data: 'type=order',
+                        success: function (data) {
+                            if (data['count'] === 0) {
+                                window.location.reload();
+                            } else {
+                                var count = data['count'];
+                                if (count === 0) {
+                                    window.location.reload();
+                                }
+                                for (var i = 0; i < count; i++) {
+                                    $.ajax({
+                                        showLoader: true,
+                                        type: "GET",
+                                        url: "<?php echo $block->getUrl('qbdesktop/connection_ajax/sync') ?>",
+                                        data: 'number=' + i + '&max=' + count + '&type=order',
+                                        success: function (data) {
+                                            if (data['finish'] === 1) {
+                                                window.location.reload();
+                                            }
+                                        }
+                                    });
+                                }
+                            }
+                        }
+                    });
+                });
+
+                $("#sync_invoice").on('click', function () {
+                    $.ajax({
+                        showLoader: true,
+                        type: "GET",
+                        url: "<?php echo $block->getUrl('qbdesktop/connection_ajax/check') ?>",
+                        data: 'type=invoice',
+                        success: function (data) {
+                            if (data['count'] === 0) {
+                                window.location.reload();
+                            } else {
+                                var count = data['count'];
+                                for (var i = 0; i < count; i++) {
+                                    $.ajax({
+                                        showLoader: true,
+                                        type: "GET",
+                                        url: "<?php echo $block->getUrl('qbdesktop/connection_ajax/sync') ?>",
+                                        data: 'number=' + i + '&max=' + count + '&type=invoice',
+                                        success: function (data) {
+                                            if (data['finish'] === 1) {
+                                                window.location.reload();
+                                            }
+                                        }
+                                    });
+                                }
+                            }
+                        }
+                    });
+                });
+
+                $("#sync_creditmemo").on('click', function () {
+                    $.ajax({
+                        showLoader: true,
+                        type: "GET",
+                        url: "<?php echo $block->getUrl('qbdesktop/connection_ajax/check') ?>",
+                        data: 'type=creditmemo',
+                        success: function (data) {
+                            if (data['count'] === 0) {
+                                window.location.reload();
+                            } else {
+                                var count = data['count'];
+                                for (var i = 0; i < count; i++) {
+                                    $.ajax({
+                                        showLoader: true,
+                                        type: "GET",
+                                        url: "<?php echo $block->getUrl('qbdesktop/connection_ajax/sync') ?>",
+                                        data: 'number=' + i + '&max=' + count + '&type=creditmemo',
+                                        success: function (data) {
+                                            if (data['finish'] === 1) {
+                                                window.location.reload();
+                                            }
+                                        }
+                                    });
+                                }
+                            }
+                        }
+                    });
+                });
+            });
+        }
+    );
+</script>

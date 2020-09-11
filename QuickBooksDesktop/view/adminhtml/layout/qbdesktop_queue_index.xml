@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2018 Magenest. All rights reserved.
+ * See COPYING.txt for license details.
+ *
+ * Magenest_QuickBooksDesktop extension
+ * NOTICE OF LICENSE
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="formkey"/>
+    <body>
+        <referenceContainer	name="content">
+            <block name="ajax_sync_qbd" template="Magenest_QuickBooksDesktop::ajax/queue.phtml"/>
+            <uiComponent name="quickbooksdesktop_queue_listing"/>
+        </referenceContainer>
+    </body>
+</page>

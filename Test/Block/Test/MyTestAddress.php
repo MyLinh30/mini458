@@ -11,7 +11,6 @@ use Magento\Framework\View\Element\Template;
 class MyTestAddress extends Template
 {
     protected $testCollectionFactory;
-    protected $_filesystem;
     public function __construct(Template\Context $context,
                                 \Magenest\Test\Model\ResourceModel\Test\CollectionFactory $testCollectionFactory,
                                 array $data = [])

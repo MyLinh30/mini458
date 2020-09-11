@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2018 Magenest. All rights reserved.
+ * See COPYING.txt for license details.
+ *
+ * Magenest_QuickBooksDesktop extension
+ * NOTICE OF LICENSE
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="admin-2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="editor"/>
+    <body>
+        <referenceContainer name="content">
+            <block class="Magenest\QuickBooksDesktop\Block\Adminhtml\User\Edit" name="qbdesktop_user_edit"/>
+        </referenceContainer>
+        <referenceContainer name="left">
+            <block class="Magenest\QuickBooksDesktop\Block\Adminhtml\User\Edit\Tabs" name="qbdesktop_edit_tabs">
+                <block class="Magenest\QuickBooksDesktop\Block\Adminhtml\User\Edit\Tab\Main" name="qbdesktop_edit_tab_main"/>
+                <action method="addTab">
+                    <argument name="name" xsi:type="string">qbdesktop_edit_tabs_default</argument>
+                    <argument name="block" xsi:type="string">qbdesktop_edit_tab_main</argument>
+                </action>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

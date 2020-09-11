@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2018 Magenest. All rights reserved.
+ * See COPYING.txt for license details.
+ *
+ * Magenest_QuickBooksDesktop extension
+ * NOTICE OF LICENSE
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Magenest_QuickBooksDesktop::integration" title="QuickBooks Desktop" module="Magenest_QuickBooksDesktop" sortOrder="60" resource="Magenest_QuickBooksDesktop::integration"/>
+        <add id="Magenest_QuickBooksDesktop::user" title="Manage User" module="Magenest_QuickBooksDesktop" sortOrder="20" parent="Magenest_QuickBooksDesktop::integration" action="qbdesktop/user/index" resource="Magenest_QuickBooksDesktop::user"/>
+        <add id="Magenest_QuickBooksDesktop::mapping" title="Manage Mapping" module="Magenest_QuickBooksDesktop" sortOrder="30" parent="Magenest_QuickBooksDesktop::integration" action="qbdesktop/mapping/index" resource="Magenest_QuickBooksDesktop::mapping"/>
+        <add id="Magenest_QuickBooksDesktop::queue" title="Manage Queues" module="Magenest_QuickBooksDesktop" sortOrder="40" parent="Magenest_QuickBooksDesktop::integration" action="qbdesktop/queue/index" resource="Magenest_QuickBooksDesktop::queue"/>
+        <add id="Magenest_QuickBooksDesktop::manage_tax" title="Mapping Tax Codes" module="Magenest_QuickBooksDesktop" sortOrder="40" parent="Magenest_QuickBooksDesktop::integration" action="qbdesktop/tax/index" resource="Magenest_QuickBooksDesktop::manage_tax"/>
+        <add id="Magenest_QuickBooksDesktop::config_qbdesktop" title="Configuration" module="Magenest_QuickBooksDesktop" sortOrder="60" parent="Magenest_QuickBooksDesktop::integration" action="adminhtml/system_config/edit/section/qbdesktop" resource="Magenest_QuickBooksDesktop::config_qbdesktop"/>
+    </menu>
+</config>

@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2018 Magenest. All rights reserved.
+ * See COPYING.txt for license details.
+ *
+ * Magenest_QuickBooksDesktop extension
+ * NOTICE OF LICENSE
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="sales_order_save_commit_after">
+        <observer name="qbdesktop_save_order" instance="Magenest\QuickBooksDesktop\Observer\SalesOrder\Save"/>
+    </event>
+    <event name="customer_save_commit_after">
+        <observer name="qbdesktop_save_customer" instance="Magenest\QuickBooksDesktop\Observer\Adminhtml\Customer\Update" />
+    </event>
+    <event name="sales_order_invoice_save_commit_after">
+        <observer name="qbdesktop_updateInvoice" instance="Magenest\QuickBooksDesktop\Observer\Adminhtml\Invoice\Create"/>
+    </event>
+    <!--Remove queue when customer deleted-->
+    <event name="customer_delete_commit_after">
+        <observer name="qbdesktop_save_customer" instance="Magenest\QuickBooksDesktop\Observer\Adminhtml\Customer\Delete" />
+    </event>
+    <!--create queue when customer edit address-->
+    <event name="customer_address_save_after">
+        <observer name="qbdesktop_save_customer_address" instance="Magenest\QuickBooksDesktop\Observer\Customer\Address" />
+    </event>
+</config>

@@ -1,0 +1,7 @@
+
+<?php $getIsCyberManager = $block->getIsCyberManager();?>
+<?php if($getIsCyberManager) { ?>
+    <li class="nav item <?php echo ($block->getUrlBeAManager()? "active" : "" ) ?>">
+        <a href="/cybergame/cyber/index">Update room info</a>
+    </li>
+<?php } ?>

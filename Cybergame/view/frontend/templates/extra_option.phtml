@@ -1,0 +1,18 @@
+<?php foreach ($block->getProductInfo() as $result): ?>
+    <div>
+        <strong>Numer pc:</strong> <?= $result->getNumberPc()?>
+    </div>
+    <div>
+        <strong>Address:</strong> <?= $result->getAddress()?>
+    </div>
+    <div>
+        <strong>Food price:</strong> <?= $result->getFoodPrice()?>
+    </div>
+    <div>
+        <strong>Drink price:</strong> <?= $result->getDrinkPrice()?>
+    </div>
+<?php endforeach;?>
+
+
+
+

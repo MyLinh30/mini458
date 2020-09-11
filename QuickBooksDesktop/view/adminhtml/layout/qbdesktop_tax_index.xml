@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="content">
+            <block class="Magenest\QuickBooksDesktop\Block\Adminhtml\TaxCode\Form" name="adminhtml.block.qbdesktop.tax.code.form" template="Magenest_QuickBooksDesktop::taxcode/form.phtml" cacheable="false">
+                <block class="Magenest\QuickBooksDesktop\Block\Adminhtml\TaxCode" name="adminhtml.block.qbdesktop.tax.code.container">
+                    <block class="Magenest\QuickBooksDesktop\Block\Adminhtml\TaxCode\Grid" name="adminhtml.block.qbdesktop.tax.code.grid" as="grid" />
+                </block>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

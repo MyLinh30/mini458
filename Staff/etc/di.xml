@@ -14,10 +14,10 @@
     </virtualType>
 
     <type name="Magento\Catalog\Block\Product\ListProduct">
-        <plugin name="changePriceProduct" type="Magenest\Staff\Plugin\UpdatePriceProduct" sortOrder="10"  />
+        <plugin name="changePriceProduct" type="Magenest\Staff\Plugin\UpdatePriceProduct" sortOrder="10" disabled="true" />
     </type>
     <virtualType name="Magento\CatalogSearch\Block\SearchResult\ListProduct">
-        <plugin name="changPrice" type="Magenest\Staff\Plugin\UpdatePriceProduct" />
+        <plugin name="changPrice" type="Magenest\Staff\Plugin\UpdatePriceProduct" disabled="true" />
     </virtualType>
 
 </config>

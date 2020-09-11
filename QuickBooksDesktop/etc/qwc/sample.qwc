@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<QBWCXML>
+    <AppName>{{AppName}}</AppName>
+    <AppID></AppID>
+    <AppURL>{{AppURL}}</AppURL>
+    <CertURL>{{CertURL}}</CertURL>
+    <AppDescription></AppDescription>
+    <AppSupport>{{supportURL}}</AppSupport>
+    <UserName>{{username}}</UserName>
+    <OwnerID>{{OwnerID}}</OwnerID>
+    <FileID>{{FileID}}</FileID>
+    <QBType>QBFS</QBType>
+    <Scheduler>
+        <RunEveryNMinutes>{{minutes}}</RunEveryNMinutes>
+    </Scheduler>
+    <IsReadOnly>false</IsReadOnly>
+</QBWCXML>

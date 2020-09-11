@@ -1,0 +1,121 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2018 Magenest. All rights reserved.
+ * See COPYING.txt for license details.
+ *
+ * Magenest_QuickBooksDesktop extension
+ * NOTICE OF LICENSE
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="magenest" translate="label" sortOrder="200">
+            <label>Magenest</label>
+        </tab>
+        <section id="qbdesktop" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <label>QuickBooks Desktop</label>
+            <tab>magenest</tab>
+            <resource>Magenest_QuickBooksDesktop::config_qbdesktop</resource>
+            <group id="qbd_setting" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Export QWC Files</label>
+                <field id="company" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <frontend_model>Magenest\QuickBooksDesktop\Block\System\Config\Connection</frontend_model>
+                </field>
+                <field id="quickbook_version" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1"	showInStore="1">
+                    <label>QuickBooks Desktop Version</label>
+                    <source_model>Magenest\QuickBooksDesktop\Model\Config\Source\Version</source_model>
+                </field>
+                <field id="number_tax" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1"	showInStore="1">
+                    <label>Number of Tax Codes in QuickBooks Desktop</label>
+                </field>
+                <field id="user_name" translate="label" type="select" sortOrder="30" showInDefault="1" showInStore="1" showInWebsite="1">
+                    <label>User Name</label>
+                    <source_model>Magenest\QuickBooksDesktop\Model\Config\Source\UserNames</source_model>
+                </field>
+                <field id="scheduler" translate="label" type="text" sortOrder="40" showInDefault="1" showInStore="1" showInWebsite="1">
+                    <label>Schedule</label>
+                    <tooltip><![CDATA[Public send request in minutes. If field is empty default value 100 will be saved.]]>
+                    </tooltip>
+                    <validate>validate-digits validate-digits-range digits-range-1-10000</validate>
+                </field>
+                <field id="date_customer" translate="label" type="date" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Customer synchronization date from</label>
+                    <frontend_model>Magenest\QuickBooksDesktop\Block\System\Config\Form\Field\Date</frontend_model>
+                </field>
+                <field id="date_product" translate="label" type="date" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Product synchronization date from</label>
+                    <frontend_model>Magenest\QuickBooksDesktop\Block\System\Config\Form\Field\Date</frontend_model>
+                </field>
+                <field id="date_sales_order" translate="label" type="date" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Sales Order synchronization date from</label>
+                    <frontend_model>Magenest\QuickBooksDesktop\Block\System\Config\Form\Field\Date</frontend_model>
+                </field>
+                <field id="date_invoice" translate="label" type="date" sortOrder="80" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Invoice synchronization date from</label>
+                    <frontend_model>Magenest\QuickBooksDesktop\Block\System\Config\Form\Field\Date</frontend_model>
+                </field>
+                <field id="date_credit_memo" translate="label" type="date" sortOrder="90" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Credit Memo synchronization date from</label>
+                    <frontend_model>Magenest\QuickBooksDesktop\Block\System\Config\Form\Field\Date</frontend_model>
+                </field>
+                <field id="query_company" type="button" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <frontend_model>Magenest\QuickBooksDesktop\Block\System\Config\Form\Field\Export\QWCCompany</frontend_model>
+                    <tooltip><![CDATA[Connect to your current QuickBooks Company]]>
+                    </tooltip>
+                </field>
+                <field id="export_map" type="button" sortOrder="110" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <frontend_model>Magenest\QuickBooksDesktop\Block\System\Config\Form\Field\Export\QWCMap</frontend_model>
+                    <tooltip><![CDATA[Mapping the taxes from QuickBooks, Go to the menu Mapping Tax Codes after the process is done.]]>
+                    </tooltip>
+                </field>
+                <field id="query_sync" type="button" sortOrder="130" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <frontend_model>Magenest\QuickBooksDesktop\Block\System\Config\Form\Field\Export\QWCSync</frontend_model>
+                    <tooltip><![CDATA[Send data from your Magento site to QuickBooks by queues in Manage Queues menu.]]>
+                    </tooltip>
+                </field>
+            </group>
+            <group id="product_list" translate="label" type="text" sortOrder="90" showInDefault="1" showInStore="1" showInWebsite="1">
+                <label>Product Query</label>
+                <field id="query_product_action" translate="label comment" type="select" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Type</label>
+                    <source_model>Magenest\QuickBooksDesktop\Model\Config\Source\ProductQueryAction</source_model>
+                </field>
+                <field id="cronjob_time" translate="label" type="text" sortOrder="20" showInDefault="1" showInStore="1" showInWebsite="1">
+                    <label>Cronjob Scheduled Time (minutes)</label>
+                    <validate>validate-number validate-greater-than-zero</validate>
+                </field>
+                <field id="product_number_qbd" translate="label" type="text" sortOrder="30" showInDefault="1" showInStore="1" showInWebsite="1">
+                    <label>Number of Products in QuickBooks Desktop</label>
+                    <validate>validate-number validate-greater-than-zero</validate>
+                </field>
+                <field id="query_product" type="button" sortOrder="110" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <frontend_model>Magenest\QuickBooksDesktop\Block\System\Config\Form\Field\Export\QWCProduct</frontend_model>
+                    <comment>
+                        <![CDATA[To map the products from QuickBooks, go to the menu Mapping Product Codes after the process is done.]]></comment>
+                </field>
+            </group>
+            <group id="account_setting" translate="label" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Account Type Setting</label>
+                <comment>Setting account name using when sync Product to QuickBooks</comment>
+                <field id="income" translate="label" type="text" sortOrder="20" showInDefault="1" showInStore="1" showInWebsite="1">
+                    <label>Income Account</label>
+                    <validate>required-entry</validate>
+                </field>
+                <field id="expense" translate="label" type="text" sortOrder="30" showInDefault="1" showInStore="1" showInWebsite="1">
+                    <label>Expense Account</label>
+                    <validate>required-entry</validate>
+                </field>
+                <field id="asset" translate="label" type="text" sortOrder="40" showInDefault="1" showInStore="1" showInWebsite="1">
+                    <label>Asset Account</label>
+                    <validate>required-entry</validate>
+                </field>
+                <field id="cogs" translate="label" type="text" sortOrder="50" showInDefault="1" showInStore="1" showInWebsite="1">
+                    <label>Cost of Goods Sold Account</label>
+                    <validate>required-entry</validate>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="3columns"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="page.main.title">
+            <block  class="Magenest\Cybergame\Block\ExtraOption"  name="product.info.form.content.extra.option"  template="extra_option.phtml"/>
+        </referenceBlock>
+<!--        <referenceContainer name="content">-->
+<!--=            <referenceContainer name="product.info.price">-->
+<!--                <block class="Magento\Framework\View\Element\Template" name="add_account_name" before="product.info.stock.sku" template="Magenest_Cybergame::add_account_name.phtml"/>-->
+<!--            </referenceContainer>-->
+<!--            <referenceContainer name="product.info.form.content" >-->
+<!--                <block class="Magenest\Cybergame\Block\Product\View" name="product.info.addtocart" as="addtocart" template="Magenest_Cybergame::product/view/addtocart.phtml"/>-->
+<!--            </referenceContainer>-->
+<!--        </referenceContainer>-->
+<!--        <move element="product.price.final" destination="product.info.price" after="product.info.stock.sku"/>-->
+
+
+        <referenceContainer name="content">
+            <referenceContainer name="product.info.main">
+                <referenceBlock name="product.info" >
+                    <referenceContainer name="product.info.form.content" >
+                        <block class="Magenest\Cybergame\Block\Product\View" name="product.info.addtocart" as="addtocart" template="Magenest_Cybergame::product/view/addtocart.phtml"/>
+                        <block class="Magento\Framework\View\Element\Template" before="product.info.addtocart" name="add_account_name" template="Magenest_Cybergame::add_account_name.phtml"/>
+                    </referenceContainer>
+                </referenceBlock>
+            </referenceContainer>
+        </referenceContainer>
+    </body>
+</page>
+

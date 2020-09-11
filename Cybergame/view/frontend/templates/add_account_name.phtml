@@ -1,0 +1,28 @@
+
+<div>
+    <label for="cybergame"><strong>Account name:</strong></label>
+    <input width="50" type="text" id="cybergame" name="account_name">
+    <div id="show_account_exist" hidden style="color: #ff0000" ></div>
+</div>
+<script>
+    require(['jquery'], function ($) {
+        $(document).ready(function () {
+            $("#cybergame").blur(function (e) {
+                e.preventDefault();
+                let custom_link ="http://m234.local/cybergame/ajax/checkaccountname";
+                // alert(custom_link);
+                let account_name = $("#cybergame").val();
+                //alert(account_name);
+                $.post(custom_link, {
+                    name: account_name,
+                }).done(function (data) {
+                    $('#show_account_exist').html(data).show();
+                }).fail(function () {
+                    alert("False");
+                });
+
+            });
+        });
+    });
+</script>
+

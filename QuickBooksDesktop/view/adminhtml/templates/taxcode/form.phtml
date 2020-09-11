@@ -1,0 +1,17 @@
+<?php
+$postUrl = $block->getUrl('qbdesktop/tax/save');
+?>
+<form id="form_tax_code" class="form-tax-code" action="<?php echo $postUrl ?>" method="post">
+    <?php echo $block->getBlockHtml('formkey'); ?>
+    <?php echo $block->getChildHtml(); ?>
+</form>
+
+<script>
+    require([
+        "jquery"
+    ], function($){
+        $("#tax_code_apply").click(function () {
+            $('#form_tax_code').submit();
+        });
+    });
+</script>
