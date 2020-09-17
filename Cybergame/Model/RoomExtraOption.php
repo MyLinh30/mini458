@@ -6,9 +6,9 @@ namespace Magenest\Cybergame\Model;
 
 class RoomExtraOption extends \Magento\Framework\Model\AbstractModel
 {
-    public function __construct(Context $context,
+    public function __construct(\Magento\Framework\Model\Context $context,
                                 \Magento\Framework\Registry $registry,
-                                ResourceModel\AbstractResource $resource = null,
+                                \Magento\Framework\Model\ResourceModel\AbstractResource $resource = null,
                                 \Magento\Framework\Data\Collection\AbstractDb $resourceCollection = null,
                                 array $data = [])
     {

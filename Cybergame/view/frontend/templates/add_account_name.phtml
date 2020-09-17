@@ -6,11 +6,11 @@
 <script>
     require(['jquery'], function ($) {
         $(document).ready(function () {
-            $("#cybergame").blur(function (e) {
+            $("#cybergame").change(function (e) {
                 e.preventDefault();
                 let custom_link ="http://m234.local/cybergame/ajax/checkaccountname";
                 let account_name = $("#cybergame").val();
-                $.post(custom_link, {
+                $.post(, {
                     name: account_name,
                 }).done(function (data) {
                     $('#show_account_not_exist').html(data).show();

@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
-    <update handle="customer_account_index.xml"/>
+    <update handle="customer_account.xml"/>
     <body>
         <referenceContainer name="content">
             <block class="Magenest\Cybergame\Block\Form\Edit" name="customer_edit" template="Magenest_Cybergame::form/edit.phtml" cacheable="false">

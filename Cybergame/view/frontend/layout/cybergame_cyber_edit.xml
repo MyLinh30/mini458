@@ -9,7 +9,8 @@
     <body>
         <referenceContainer name="content">
             <block class="Magenest\Cybergame\Block\RoomExtraOption\EditCyberRoom" name="edit_cyber_room" template="Magenest_Cybergame::edit.phtml"/>
-
+            <block class="Magenest\Cybergame\Block\RoomExtraOption\EditCyberRoom" name="blabla" template="Magenest_Cybergame::edit.phtml"/>
         </referenceContainer>
+        $object->
     </body>
 </page>
